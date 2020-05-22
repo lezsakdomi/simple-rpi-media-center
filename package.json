@@ -1,6 +1,6 @@
 {
   "name": "simple-rpi-media-center",
-  "productName": "SRMC",
+  "productName": "SimpleRPiMediaCenter",
   "version": "0.1.0",
   "description": "Simple to use media center made for a Raspberry PI",
   "scripts": {
@@ -52,8 +52,8 @@
     ]
   },
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.develar.ElectronReact",
+    "productName": "SRMC",
+    "appId": "hu.xn--lezsk-0qa.domonkos.srmc",
     "files": [
       "dist/",
       "node_modules/",
@@ -69,7 +69,7 @@
           "arch": "armv7l"
         }
       ],
-      "category": "Development"
+      "category": "Media"
     },
     "directories": {
       "buildResources": "resources",
@@ -77,49 +77,24 @@
     },
     "publish": {
       "provider": "github",
-      "owner": "electron-react-boilerplate",
-      "repo": "electron-react-boilerplate",
+      "owner": "lezsakdomi",
+      "repo": "simple-rpi-media-center",
       "private": false
     }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/electron-react-boilerplate/electron-react-boilerplate.git"
+    "url": "git+https://github.com/lezsakdomi/simple-rpi-media-center.git"
   },
   "author": {
-    "name": "Electron React Boilerplate Maintainers",
-    "email": "electronreactboilerplate@gmail.com",
-    "url": "https://electron-react-boilerplate.js.org"
+    "name": "Domonkos Lezsák",
+    "email": "lezsakdomi1@gmail.com",
+    "url": "https://domonkos.lezsék.hu"
   },
-  "contributors": [
-    {
-      "name": "Vikram Rangaraj",
-      "email": "vikr01@icloud.com",
-      "url": "https://github.com/vikr01"
-    },
-    {
-      "name": "Amila Welihinda",
-      "email": "amilajack@gmail.com",
-      "url": "https://github.com/amilajack"
-    }
-  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/electron-react-boilerplate/electron-react-boilerplate/issues"
+    "url": "https://github.com/lezsakdomi/simple-rpi-media-center/issues"
   },
-  "keywords": [
-    "electron",
-    "boilerplate",
-    "react",
-    "redux",
-    "typescript",
-    "ts",
-    "sass",
-    "webpack",
-    "hot",
-    "reload"
-  ],
-  "homepage": "https://github.com/electron-react-boilerplate/electron-react-boilerplate#readme",
   "jest": {
     "testURL": "http://localhost/",
     "moduleNameMapper": {
