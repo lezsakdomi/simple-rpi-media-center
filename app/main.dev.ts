@@ -9,7 +9,7 @@
  * `./app/main.prod.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, screen } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
@@ -56,8 +56,8 @@ const createWindow = async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1024,
-    height: 728,
+    width: 800,
+    height: 480,
     webPreferences:
       process.env.NODE_ENV === 'development' || process.env.E2E_BUILD === 'true'
         ? {
@@ -81,7 +81,15 @@ const createWindow = async () => {
     } else {
       mainWindow.show();
       mainWindow.focus();
+
       if (process.env.NODE_ENV === 'production') {
+        const display = screen.getAllDisplays().reduce((smallest, current) => {
+          return current.bounds.width * current.bounds.height <
+            smallest.bounds.width * smallest.bounds.height
+            ? current
+            : smallest;
+        }, screen.getPrimaryDisplay());
+        mainWindow.setBounds(display.bounds);
         mainWindow.setFullScreen(true);
       }
     }
