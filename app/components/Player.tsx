@@ -65,9 +65,21 @@ export default class Player extends React.Component<{
     this.mpv.quit();
   }
 
+  mpvPrevN(n: number) {
+    for (let i = 0; i < n; i += 1) {
+      this.mpv.prev();
+    }
+  }
+
+  mpvNextN(n: number) {
+    for (let i = 0; i < n; i += 1) {
+      this.mpv.next();
+    }
+  }
+
   render() {
     const {
-      status: { pause = true, path }
+      status: { pause = true, path, duration }
     } = this.state;
 
     if (!path) {
@@ -82,6 +94,42 @@ export default class Player extends React.Component<{
       );
     }
 
+    if (!duration) {
+      return (
+        <div>
+          <Link to={routes.HOME} className={styles.backButton}>
+            <i className="fa fa-arrow-left" />
+            Vissza
+          </Link>
+          <div className={styles.container}>
+            <div className={styles.skip}>
+              <Button icon="step-backward" onClick={() => this.mpvPrevN(1)}>
+                1
+              </Button>
+              <Button icon="fast-backward" onClick={() => this.mpvPrevN(10)}>
+                10
+              </Button>
+            </div>
+            <div className={styles.playPause}>
+              {pause ? (
+                <Button icon="play" onClick={() => this.mpv.play()} />
+              ) : (
+                <Button icon="pause" onClick={() => this.mpv.pause()} />
+              )}
+            </div>
+            <div className={styles.skip}>
+              <Button icon="step-forward" onClick={() => this.mpvNextN(1)}>
+                1
+              </Button>
+              <Button icon="fast-forward" onClick={() => this.mpvNextN(10)}>
+                10
+              </Button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div>
         <Link to={routes.HOME} className={styles.backButton}>
@@ -89,21 +137,14 @@ export default class Player extends React.Component<{
           Vissza
         </Link>
         <div className={styles.container}>
+          <div className={styles.skip}>
+            <Button icon="step-backward" onClick={() => this.mpv.prev()} />
+          </div>
           <div className={styles.seek}>
-            <Button
-              icon="backward"
-              onClick={() => {
-                this.mpv.prev();
-              }}
-            >
+            <Button icon="backward" onClick={() => this.mpv.seek(-60)}>
               1
             </Button>
-            <Button
-              icon="fast-backward"
-              onClick={() => {
-                for (let i = 0; i < 10; i += 1) this.mpv.prev();
-              }}
-            >
+            <Button icon="fast-backward" onClick={() => this.mpv.seek(-600)}>
               10
             </Button>
           </div>
@@ -115,17 +156,15 @@ export default class Player extends React.Component<{
             )}
           </div>
           <div className={styles.seek}>
-            <Button icon="forward" onClick={() => this.mpv.next()}>
+            <Button icon="forward" onClick={() => this.mpv.seek(60)}>
               1
             </Button>
-            <Button
-              icon="fast-forward"
-              onClick={() => {
-                for (let i = 0; i < 10; i += 1) this.mpv.next();
-              }}
-            >
+            <Button icon="fast-forward" onClick={() => this.mpv.seek(600)}>
               10
             </Button>
+          </div>
+          <div className={styles.skip}>
+            <Button icon="step-forward" onClick={() => this.mpv.next()} />
           </div>
         </div>
       </div>
