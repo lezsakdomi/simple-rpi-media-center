@@ -82,6 +82,10 @@ const createWindow = async () => {
       mainWindow.show();
       mainWindow.focus();
     }
+
+    if (process.env.NODE_ENV === 'production') {
+      mainWindow.setFullScreen(true);
+    }
   });
 
   mainWindow.on('closed', () => {
