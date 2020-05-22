@@ -9,7 +9,7 @@ export default function Home() {
       <MenuItem to={routes.HDMI_PLAYER} icon="tv">
         TV
       </MenuItem>
-      <MenuItem to={routes.LCD_PLAYER} icon="tablet">
+      <MenuItem to={routes.LCD_PLAYER} icon="tablet-alt">
         képernyő
       </MenuItem>
       <MenuItem to="#" icon="th">
