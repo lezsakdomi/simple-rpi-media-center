@@ -4,12 +4,18 @@ import routes from './constants/routes.json';
 import App from './containers/App';
 import HomePage from './containers/HomePage';
 import HDMIPlayer from './containers/HDMIPlayer';
+import LCDPlayer from './containers/LCDPlayer';
+import ManualPlayer from './containers/ManualPlayer';
+import ServicePlayer from './containers/ServicePlayer';
 
 export default function Routes() {
   return (
     <App>
       <Switch>
         <Route path={routes.HDMI_PLAYER} component={HDMIPlayer} />
+        <Route path={routes.LCD_PLAYER} component={LCDPlayer} />
+        <Route path={routes.SELECT_FILE} component={ManualPlayer} />
+        <Route path={routes.SERVICE} component={ServicePlayer} />
         <Route path={routes.HOME} component={HomePage} />
       </Switch>
     </App>

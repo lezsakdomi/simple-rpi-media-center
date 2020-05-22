@@ -2,5 +2,6 @@
   "HOME": "/",
   "HDMI_PLAYER": "/player/tv",
   "LCD_PLAYER": "/player/display",
+  "SELECT_FILE": "/select",
   "SERVICE": "/settings"
 }

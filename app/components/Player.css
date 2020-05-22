@@ -20,20 +20,19 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-
   background: none;
   color: white;
   border: none;
   outline: none;
 }
 
-.button > .label {
-  color: lightblue;
-}
-
 .label {
   font-size: 4em;
   margin: 1rem;
+}
+
+.button > .label {
+  color: lightblue;
 }
 
 .backButton {
@@ -43,4 +42,13 @@
 
 .backButton > i {
   margin: 1em;
+}
+
+.loading {
+  font-size: xx-large;
+}
+
+.loading > .container {
+  justify-content: center;
+  align-items: center;
 }

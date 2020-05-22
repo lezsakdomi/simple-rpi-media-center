@@ -12,7 +12,7 @@ export default function Home() {
       <MenuItem to={routes.LCD_PLAYER} icon="tablet-alt">
         képernyő
       </MenuItem>
-      <MenuItem to="#" icon="th">
+      <MenuItem to={routes.SELECT_FILE} icon="th">
         kiválasztás
       </MenuItem>
       <MenuItem to={routes.SERVICE} icon="tools">

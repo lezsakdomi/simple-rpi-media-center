@@ -218,6 +218,12 @@ export default class MenuBuilder {
           process.env.DEBUG_PROD === 'true'
             ? [
                 {
+                  label: '&Home',
+                  click: () => {
+                    this.mainWindow.loadURL(`file://${__dirname}/app.html`);
+                  }
+                },
+                {
                   label: '&Reload',
                   accelerator: 'Ctrl+R',
                   click: () => {
