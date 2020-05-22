@@ -1,4 +1,6 @@
 {
   "HOME": "/",
-  "COUNTER": "/counter"
+  "HDMI_PLAYER": "/player/tv",
+  "LCD_PLAYER": "/player/display",
+  "SERVICE": "/settings"
 }

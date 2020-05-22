@@ -6,6 +6,7 @@
 
 body {
   position: relative;
+  margin: 0;
   color: white;
   height: 100vh;
   background-color: #232c39;

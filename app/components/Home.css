@@ -1,14 +1,24 @@
 .container {
   position: absolute;
-  top: 30%;
-  left: 10px;
+  left: 2em;
+  top: 1em;
+  bottom: 1em;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.item {
+  font-size: 5rem;
+  text-transform: uppercase;
+}
+
+.item .icon {
+  width: 2em;
   text-align: center;
 }
 
-.container h2 {
-  font-size: 5rem;
-}
-
-.container a {
-  font-size: 1.4rem;
+.item .label {
+  display: inline-block;
 }
