@@ -1,0 +1,37 @@
+.container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.seek,
+.playPause {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button {
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.label {
+  font-size: 4em;
+  margin: 1rem;
+}
+
+.backButton {
+  position: absolute;
+  z-index: 1;
+}
+
+.backButton > i {
+  margin: 1em;
+}
