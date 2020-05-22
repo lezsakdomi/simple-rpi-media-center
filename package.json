@@ -1,7 +1,7 @@
 {
   "name": "simple-rpi-media-center",
   "productName": "SimpleRPiMediaCenter",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Simple to use media center made for a Raspberry PI",
   "scripts": {
     "build": "concurrently \"yarn build-main\" \"yarn build-renderer\"",
