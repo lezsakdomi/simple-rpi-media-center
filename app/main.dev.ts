@@ -84,12 +84,12 @@ const createWindow = async () => {
 
       if (process.env.NODE_ENV === 'production') {
         const display = screen.getAllDisplays().reduce((smallest, current) => {
-          return current.bounds.width * current.bounds.height <
-            smallest.bounds.width * smallest.bounds.height
+          return current.size.width * current.size.height <
+            smallest.size.width * smallest.size.height
             ? current
             : smallest;
         }, screen.getPrimaryDisplay());
-        mainWindow.setBounds(display.bounds);
+        mainWindow.setBounds(display.workArea);
         mainWindow.setFullScreen(true);
       }
     }
