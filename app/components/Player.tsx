@@ -27,21 +27,26 @@ export default function Player() {
   );
 }
 
-function Button(props: React.PropsWithChildren<{ icon: string }>) {
-  const { icon, children } = props;
+function Button(
+  props: React.PropsWithChildren<{
+    icon: string;
+    onClick: React.MouseEventHandler<HTMLButtonElement>;
+  }>
+) {
+  const { icon, onClick, children } = props;
 
   if (children) {
     return (
-      <div className={styles.button}>
+      <button type="button" className={styles.button} onClick={onClick}>
         <i className={`fa fa-${icon} fa-7x`} />
         <div className={styles.label}>{children}</div>
-      </div>
+      </button>
     );
   }
 
   return (
-    <div className={styles.button}>
+    <button type="button" className={styles.button} onClick={onClick}>
       <i className={`fa fa-${icon} fa-10x`} />
-    </div>
+    </button>
   );
 }
