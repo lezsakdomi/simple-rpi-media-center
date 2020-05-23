@@ -1,7 +1,7 @@
 {
   "name": "simple-rpi-media-center",
   "productName": "SimpleRPiMediaCenter",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Simple to use media center made for a Raspberry PI",
   "scripts": {
     "build": "concurrently \"yarn build-main\" \"yarn build-renderer\"",
@@ -18,7 +18,7 @@
     "lint-styles-fix": "yarn --silent lint-styles --fix; exit 0",
     "package": "yarn build && electron-builder build --publish never",
     "package-all": "yarn build && electron-builder build -mwl",
-    "package-ci": "yarn postinstall && yarn build && electron-builder --publish always",
+    "package-ci": "yarn postinstall && yarn build && e cross-env START_HOT=1 NODE_ENV=development electron -r ./internals/scripts/BabelRegister ./app/main.dev.tslectron-builder --publish always",
     "package-mac": "yarn build && electron-builder build --mac",
     "package-linux": "yarn build && electron-builder build --linux",
     "package-win": "yarn build && electron-builder build --win --x64",

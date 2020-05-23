@@ -1,7 +1,7 @@
 {
   "name": "simple-rpi-media-center",
   "productName": "SRMC",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Simple to use media center made for a Raspberry PI",
   "main": "./main.prod.js",
   "author": {

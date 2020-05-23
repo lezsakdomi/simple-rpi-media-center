@@ -4,7 +4,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import { hot } from 'react-hot-loader/root';
 import { History } from 'history';
 import { Store } from '../reducers/types';
-import Routes from '../Routes';
+import Routes, { SimpleRoutes } from '../Routes';
 
 type Props = {
   store: Store;
@@ -14,7 +14,7 @@ type Props = {
 const Root = ({ store, history }: Props) => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Routes />
+      {process.argv.length === 1 ? <SimpleRoutes /> : <Routes />}
     </ConnectedRouter>
   </Provider>
 );

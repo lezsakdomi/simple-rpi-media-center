@@ -13,7 +13,7 @@ const { dialog } = remote;
 export default class Player extends React.Component<{
   screen?: number;
   fullscreen?: boolean;
-  auto?: boolean;
+  auto?: boolean | string;
   delayedFullscreen?: boolean;
 }> {
   mpv: Mpv;
@@ -24,10 +24,10 @@ export default class Player extends React.Component<{
   componentDidMount() {
     const { screen, fullscreen, auto, delayedFullscreen } = this.props;
 
-    const path =
-      process.platform === 'win32'
-        ? `${process.env.USERPROFILE}\\Videos`
-        : `/media/${process.env.USER}`;
+    let path = `/media/${process.env.USER}`;
+    if (typeof auto === 'string') path = auto;
+    else if (process.platform === 'win32')
+      path = `${process.env.USERPROFILE}\\Videos`;
 
     const args = [];
     if (fullscreen) args.push('--fullscreen');
