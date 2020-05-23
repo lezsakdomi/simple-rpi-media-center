@@ -14,6 +14,7 @@ export default class Player extends React.Component<{
   screen?: number;
   fullscreen?: boolean;
   auto?: boolean;
+  delayedFullscreen?: boolean;
 }> {
   mpv: Mpv;
 
@@ -21,7 +22,7 @@ export default class Player extends React.Component<{
   state: { status: { [key: string]: any } } = { status: {} };
 
   componentDidMount() {
-    const { screen, fullscreen, auto } = this.props;
+    const { screen, fullscreen, auto, delayedFullscreen } = this.props;
 
     const path =
       process.platform === 'win32'
@@ -49,6 +50,12 @@ export default class Player extends React.Component<{
               this.mpv.load(filePaths[i], 'append-play');
             }
           }
+
+          if (delayedFullscreen) {
+            this.mpv.leaveFullscreen();
+            this.mpv.fullscreen();
+          }
+
           return undefined;
         })
         .catch(e => {
